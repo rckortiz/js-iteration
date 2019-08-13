@@ -59,11 +59,17 @@
  * Example:
  *
  * const yelling = (array) => {
- *    // your code here
- * }
+ *
+ *
  */
 
-// ...
+const yelling = string => {
+  let x = []
+  string.map(y => {
+    x.push(y.toUpperCase())
+  })
+  return x
+}
 
 /**
  *
@@ -71,30 +77,46 @@
  * numbers as an argument and returns a new array with all
  * the numbers multiplied by 2
  */
-
-// ...
-
+const doubleTrouble = array => {
+  return array.map(x => x * 2)
+}
 /*
  * Define a function stringyIndexes() that takes an array of
  * strings as an argument and returns a new array with each string
  * suffixed with " is at index X" where X is the index of the element
  */
 
-// ...
+const stringyIndexes = arrayOfStrings => {
+  let index = -1
+  return arrayOfStrings.map(x => {
+    index += 1
+    return x + 'is at index' + index
+  })
+}
 
 /*
  * Define a function onlyTheEvenSurvive that accepts an array of
  * numbers and returns only the elements that are even
  */
 
-// ...
+const onlyTheEvenSurvive = array => {
+  return array.filter(x => x % 2 == 0)
+}
 
 /*
  * Define a function onlyTheEvenIndexedSurvive that accepts an array of
  * numbers and returns only the elements at indexes that are even
  */
 
-// ...
+const onlyTheEvenIndexedSurvive = () => {
+  const counter = 0
+  const newArray = []
+  array.filter(x => {
+    if (counter % 2 == 0) {
+      newArray.push(x)
+    }
+  })
+}
 
 /*
  * Define a function bestMoviesOfTheYear that accepts an array of
@@ -109,16 +131,20 @@
  *   score: 99
  * }
  */
-
-// ...
+const bestMoviesOfTheYear = (movArray, year) => {
+  const newArray = movArray.filter(mov => mov.score > 90 && mov.year == year)
+  const brandNewArray = []
+  newArray.forEach(x => {
+    brandNewArray.push(x.name)
+  })
+  return brandNewArray
+}
 
 /*
  * Define a function everyoneIsOdd that accepts an array of
  * numbers and returns true if every element of the array is
  * odd.
  */
-
-// ...
 
 /*
  * Define a function findTheNeedle that accepts an array of
@@ -189,7 +215,9 @@ import test from 'ava'
 
 const ensureDefined = (t, method) => {
   if (eval(`typeof ${method}`) !== 'function') {
-    t.fail(`\n\n\n\n\n⚡️⚡️⚡️⚡️⚡️ The next step is to define the function ${method} ⚡️⚡️⚡️⚡️⚡️\n\n\n`)
+    t.fail(
+      `\n\n\n\n\n⚡️⚡️⚡️⚡️⚡️ The next step is to define the function ${method} ⚡️⚡️⚡️⚡️⚡️\n\n\n`
+    )
   }
 }
 
